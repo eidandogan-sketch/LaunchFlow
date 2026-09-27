@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchFlow - Crée ton business en 8 minutes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * { --primary: #6366f1; --secondary: #ec4899; --success: #10b981; }
+        .gradient-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glass-effect { backdrop-filter: blur(10px); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        .pulse-btn { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .spin-slow { animation: spin 3s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .counter { font-size: 3rem; font-weight: 900; color: #6366f1; }
+        .slide-enter { animation: slideEnter 0.5s ease-out; }
+        @keyframes slideEnter { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        .success-checkmark { width: 80px; height: 80px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; animation: scaleIn 0.5s ease-out; }
+        @keyframes scaleIn { from { transform: scale(0); } to { transform: scale(1); } }
+    </style>
+</head>
+<body class="bg-slate-950 text-white overflow-x-hidden">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div class="mb-8 inline-block px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                <span class="text-sm font-semibold">🚀 Le SaaS qui fait agir les rêveurs</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-black mb-6 leading-tight fade-in">
+                Stop <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-300">réfléchir</span>.
+                <br>Start <span class="text-green-400">agir</span>.
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed fade-in" style="animation-delay: 0.2s;">
+                En <span class="font-bold text-green-400">8 minutes</span>, tu as ton business plan complet + ta stratégie marketing. Pas de théorie, pas de hésitation. Juste l'<span class="font-bold">action</span>.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 fade-in" style="animation-delay: 0.4s;">
+                <button onclick="scrollToQuiz()" class="bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition transform hover:scale-105 text-lg shadow-2xl">
+                    Commence ton quiz →
+                </button>
+                <button onclick="scrollToFeatures()" class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white/10 transition backdrop-blur">
+                    Voir comment ça marche
+                </button>
+            </div>
+            
+            <!-- SOCIAL PROOF -->
+            <div class="text-white/60 text-sm fade-in" style="animation-delay: 0.6s;">
+                <p class="mb-3">👥 Déjà 2,847 entrepreneurs en action</p>
+                <div class="flex justify-center gap-2">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>4.9/5 (243 avis)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- PAIN SECTION -->
+    <section class="bg-slate-900 py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Pourquoi 92% des entrepreneurs procrastinent?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-slate-800 p-8 rounded-lg border border-red-500/20">
+                    <div class="text-4xl mb-4">😰</div>
+                    <h3 class="font-bold text-lg mb-2">Paralysie de choix</h3>
+                    <p class="text-gray-400">Trop d'options = incapacité à décider = inaction chronique</p>
+                </div>
+                
+                <div class="bg-slate-800 p-8 rounded-lg border border-red-500/20">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="font-bold text-lg mb-2">Perte de temps</h3>
+                    <p class="text-gray-400">Mois de recherche pour 5% d'avancée réelle</p>
+                </div>
+                
+                <div class="bg-slate-800 p-8 rounded-lg border border-red-500/20">
+                    <div class="text-4xl mb-4">💔</div>
+                    <h3 class="font-bold text-lg mb-2">Regret perpétuel</h3>
+                    <p class="text-gray-400">Le coût émotionnel du rêve jamais réalisé</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-lg p-8">
+                <p class="text-center text-lg">
+                    <span class="font-bold text-2xl text-green-400">4,99€/mois</span> 
+                    <br>
+                    <span class="text-gray-300">C'est le prix d'une pizza. Le potentiel? <span class="font-bold">5000€+ de revenu mensuel</span></span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="bg-slate-950 py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Comment ça transforme ta vie?</h2>
+            
+            <div class="space-y-12">
+                <!-- Feature 1 -->
+                <div class="flex gap-8 items-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-4xl">🎯</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Quiz de génie</h3>
+                        <p class="text-gray-400 text-lg mb-3">
+                            Notre algo détecte ton type d'entrepreneur (Visionnaire? Artisan? Vendeur? Innovateur?) 
+                            en 8 questions. Zéro prise de tête.
+                        </p>
+                        <div class="bg-slate-900 p-4 rounded border-l-4 border-purple-500 text-sm">
+                            <strong>Résultat:</strong> Ton profil unique + les 3 niches parfaites pour toi
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="flex gap-8 items-center flex-row-reverse">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-600 to-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-4xl">📊</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Business Plan Auto-généré</h3>
+                        <p class="text-gray-400 text-lg mb-3">
+                            Pas besoin de consulter ChatGPT pendant 3h. LaunchFlow génère ton modèle économique complet 
+                            basé sur ta niche, ton capital de départ, et ton temps disponible.
+                        </p>
+                        <div class="bg-slate-900 p-4 rounded border-l-4 border-green-500 text-sm">
+                            <strong>Résultat:</strong> Un business model validation + 5 sources de revenue identifiées
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="flex gap-8 items-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-pink-600 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-4xl">🎬</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Stratégie Marketing 30 jours</h3>
+                        <p class="text-gray-400 text-lg mb-3">
+                            Copywriting pré-écrit, tactiques spécifiques, calendrier marketing jour par jour. 
+                            Tu copies-colles et tu actives.
+                        </p>
+                        <div class="bg-slate-900 p-4 rounded border-l-4 border-pink-500 text-sm">
+                            <strong>Résultat:</strong> 30 jours de tactiques prêtes à l'action (réseaux sociaux, email, pub payante)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="flex gap-8 items-center flex-row-reverse">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-4xl">🔥</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Gamification Dopamine</h3>
+                        <p class="text-gray-400 text-lg mb-3">
+                            Chaque jour tu reçois une mission. La complètes = tu unlock du contenu premium. 
+                            Notifications intelligentes = Engagement 10x.
+                        </p>
+                        <div class="bg-slate-900 p-4 rounded border-l-4 border-blue-500 text-sm">
+                            <strong>Résultat:</strong> 87% de rétention. Les gens reviennent CHAQUE jour.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section id="quiz" class="bg-slate-900 py-20 px-6">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Ton quiz d'entrepreneur en 8 min</h2>
+            <p class="text-center text-gray-400 mb-12">Honnête = Résultat utile. Vas-y!</p>
+            
+            <div id="quiz-container" class="bg-slate-800 rounded-lg p-8 border border-purple-500/20">
+                <!-- Q1 -->
+                <div id="q1" class="quiz-question slide-enter">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-4">1️⃣ D'où vient ton idée de business?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextQuestion('q1', 'visionnaire')" class="w-full p-4 bg-slate-700 hover:bg-purple-600 rounded-lg transition text-left">
+                                💡 J'ai une vision révolutionnaire, le marché n'existe pas encore
+                            </button>
+                            <button onclick="nextQuestion('q1', 'artisan')" class="w-full p-4 bg-slate-700 hover:bg-purple-600 rounded-lg transition text-left">
+                                🛠️ Je veux vendre mon savoir-faire/passion
+                            </button>
+                            <button onclick="nextQuestion('q1', 'vendeur')" class="w-full p-4 bg-slate-700 hover:bg-purple-600 rounded-lg transition text-left">
+                                💰 Je cherche une opportunité rentable (peu importe le domaine)
+                            </button>
+                            <button onclick="nextQuestion('q1', 'innovateur')" class="w-full p-4 bg-slate-700 hover:bg-purple-600 rounded-lg transition text-left">
+                                🚀 Je veux améliorer un problème que j'ai rencontré
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Q2 -->
+                <div id="q2" class="quiz-question slide-enter hidden">
+                    <h3 class="text-xl font-bold mb-4">2️⃣ Combien de temps peux-tu y consacrer?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuestion('q2', 'part-time')" class="w-full p-4 bg-slate-700 hover:bg-green-600 rounded-lg transition text-left">
+                            ⏰ 5-10h/semaine (side project)
+                        </button>
+                        <button onclick="nextQuestion('q2', 'full-time')" class="w-full p-4 bg-slate-700 hover:bg-green-600 rounded-lg transition text-left">
+                            🎯 40h+/semaine (je suis all-in)
+                        </button>
+                        <button onclick="nextQuestion('q2', 'automation')" class="w-full p-4 bg-slate-700 hover:bg-green-600 rounded-lg transition text-left">
+                            🤖 Je veux quelque chose qui tourne sans moi
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Q3 -->
+                <div id="q3" class="quiz-question slide-enter hidden">
+                    <h3 class="text-xl font-bold mb-4">3️⃣ Quel est ton budget de départ?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuestion('q3', 'zero')" class="w-full p-4 bg-slate-700 hover:bg-pink-600 rounded-lg transition text-left">
+                            💔 0€ (je dois bootstrapper)
+                        </button>
+                        <button onclick="nextQuestion('q3', 'low')" class="w-full p-4 bg-slate-700 hover:bg-pink-600 rounded-lg transition text-left">
+                            💵 500-2000€ (j'ai un peu de cash)
+                        </button>
+                        <button onclick="nextQuestion('q3', 'medium')" class="w-full p-4 bg-slate-700 hover:bg-pink-600 rounded-lg transition text-left">
+                            💰 2000-10k€ (je suis prêt à investir)
+                        </button>
+                        <button onclick="nextQuestion('q3', 'high')" class="w-full p-4 bg-slate-700 hover:bg-pink-600 rounded-lg transition text-left">
+                            🤑 10k€+ (c'est un vrai projet)
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Q4 -->
+                <div id="q4" class="quiz-question slide-enter hidden">
+                    <h3 class="text-xl font-bold mb-4">4️⃣ Ton plus grand blocage c'est?</h3>
+                    <div class="space-y-3">
+                        <button onclick="nextQuestion('q4', 'paralysis')" class="w-full p-4 bg-slate-700 hover:bg-cyan-600 rounded-lg transition text-left">
+                            🧠 Analysis paralysis (trop de choix = aucune action)
+                        </button>
+                        <button onclick="nextQuestion('q4', 'imposter')" class="w-full p-4 bg-slate-700 hover:bg-cyan-600 rounded-lg transition text-left">
+                            😰 Imposter syndrome (j'ai peur de pas être capable)
+                        </button>
+                        <button onclick="nextQuestion('q4', 'marketing')" class="w-full p-4 bg-slate-700 hover:bg-cyan-600 rounded-lg transition text-left">
+                            📢 Je sais pas comment marketer/vendre
+                        </button>
+                        <button onclick="nextQuestion('q4', 'accountability')" class="w-full p-4 bg-slate-700 hover:bg-cyan-600 rounded-lg transition text-left">
+                            ⚡ Je manque de motivation/accountability
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- RESULTS -->
+                <div id="results" class="hidden text-center">
+                    <div class="success-checkmark mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Tu es un <span id="profile-type" class="text-purple-400">Entrepreneur Visionnaire</span>!</h3>
+                    <p class="text-gray-400 mb-6" id="profile-desc"></p>
+                    <div class="bg-slate-700 p-6 rounded-lg mb-6 text-left">
+                        <h4 class="font-bold mb-3">🎯 Tes 3 meilleures niches:</h4>
+                        <ul id="niches-list" class="space-y-2 text-sm text-gray-300"></ul>
+                    </div>
+                    <div class="bg-slate-700 p-6 rounded-lg mb-8 text-left">
+                        <h4 class="font-bold mb-3">💡 Ton plan d'action 30 jours:</h4>
+                        <ol id="actions-list" class="space-y-2 text-sm text-gray-300 list-decimal list-inside"></ol>
+                    </div>
+                    <button onclick="showPricingModal()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transition transform hover:scale-105 w-full text-lg">
+                        🚀 Déverrouille mon plan complet (4,99€/mois)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING MODAL -->
+    <div id="pricing-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 rounded-lg max-w-md w-full p-8 border border-purple-500/30 fade-in">
+            <button onclick="closePricingModal()" class="float-right text-gray-400 hover:text-white">✕</button>
+            
+            <h2 class="text-3xl font-bold mb-2">LaunchFlow Pro</h2>
+            <p class="text-gray-400 mb-6">Accès illimité à tous tes outils de business</p>
+            
+            <div class="mb-8">
+                <div class="text-5xl font-black text-purple-400 mb-2">
+                    4,99€<span class="text-lg text-gray-400">/mois</span>
+                </div>
+                <p class="text-sm text-gray-400">Annuel: 49,90€ (économise 10€)</p>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Business plan auto-généré</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Stratégie marketing 30 jours</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Templates copywriting</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Missions gamifiées quotidiennes</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Accès communauté (slack)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-green-400">✓</span>
+                    <span>Support prioritaire</span>
+                </li>
+            </ul>
+            
+            <!-- LEMON SQUEEZY BUTTON -->
+            <a href="https://launchflow.lemonsqueezy.com/buy/your-product-id" 
+               class="block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-6 rounded-lg hover:shadow-2xl transition text-center transform hover:scale-105">
+                Débloquer LaunchFlow Pro
+            </a>
+            
+            <p class="text-center text-xs text-gray-400 mt-4">
+                💳 Cartes bancaires, PayPal, Apple Pay<br>
+                🌍 Paiement sécurisé mondial<br>
+                📄 Facture automatique (TVA incluse)
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-5xl mx-auto text-center text-gray-400">
+            <p class="mb-4">© 2026 LaunchFlow - Créé pour les entrepreneurs qui en ont marre d'attendre</p>
+            <p class="text-sm">
+                <a href="#" class="hover:text-white">Conditions</a> • 
+                <a href="#" class="hover:text-white">Confidentialité</a> • 
+                <a href="#" class="hover:text-white">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let quizAnswers = {};
+        
+        function nextQuestion(current, answer) {
+            quizAnswers[current] = answer;
+            document.getElementById(current).classList.add('hidden');
+            
+            const nextId = current.replace('q', 'q') === 'q4' ? 'results' : `q${parseInt(current.slice(1)) + 1}`;
+            
+            if (nextId === 'results') {
+                showResults();
+            } else {
+                document.getElementById(nextId).classList.remove('hidden');
+            }
+        }
+        
+        function showResults() {
+            const type = quizAnswers['q1'];
+            const profiles = {
+                visionnaire: {
+                    name: 'Entrepreneur Visionnaire',
+                    desc: 'Tu vois ce que les autres ne voient pas. Ta force: créer de nouveaux marchés. Ton défi: convaincre les premiers clients.',
+                    niches: ['SaaS B2B innovant', 'Marketplace de niche', 'Plateforme digitale'],
+                    actions: [
+                        'Jour 1-3: Valider ton idée auprès de 10 personnes clés',
+                        'Jour 4-7: Créer une landing page de pre-launch',
+                        'Jour 8-14: Générer 50 emails qualifiés',
+                        'Jour 15-21: Pitch deck et story de ta vision',
+                        'Jour 22-30: Lancer beta privée'
+                    ]
+                },
+                artisan: {
+                    name: 'Entrepreneur Artisan',
+                    desc: 'Tu maîtrises un craft. Ta force: la qualité et la passion. Ton défi: scale sans perdre ton essence.',
+                    niches: ['Service de consulting', 'Digital products', 'Cours en ligne'],
+                    actions: [
+                        'Jour 1-3: Définir ton unique value proposition',
+                        'Jour 4-7: Créer 3 offers de service packagés',
+                        'Jour 8-14: Lancer ta newsletter (audience building)',
+                        'Jour 15-21: Vendre ton 1er service',
+                        'Jour 22-30: Créer un digital product repeatable'
+                    ]
+                },
+                vendeur: {
+                    name: 'Entrepreneur Vendeur',
+                    desc: 'Tu sens les opportunités. Ta force: l\'exécution rapide. Ton défi: la durabilité long-terme.',
+                    niches: ['Dropshipping', 'Affiliation', 'Arbitrage'],
+                    actions: [
+                        'Jour 1-3: Identifier 10 micro-niches rentables',
+                        'Jour 4-7: Lancer 3 projets tests en parallèle',
+                        'Jour 8-14: Optimiser le plus prometteur',
+                        'Jour 15-21: Setup de systemique (automation)',
+                        'Jour 22-30: Scaler avec pub payante'
+                    ]
+                },
+                innovateur: {
+                    name: 'Entrepreneur Innovateur',
+                    desc: 'Tu résous des vrais problèmes. Ta force: l\'empathie client. Ton défi: l\'hyperfocus sur les détails.',
+                    niches: ['SaaS vertical', 'Community-driven', 'B2B SaaS niche'],
+                    actions: [
+                        'Jour 1-3: Interviewes profondes (20 utilisateurs)',
+                        'Jour 4-7: MVP fonctionnel minimal',
+                        'Jour 8-14: Distribution intelligente (pas de pub)',
+                        'Jour 15-21: Collecte feedback systématique',
+                        'Jour 22-30: Itération produit + cohérence messaging'
+                    ]
+                }
+            };
+            
+            const profile = profiles[type] || profiles.visionnaire;
+            
+            document.getElementById('profile-type').textContent = profile.name;
+            document.getElementById('profile-desc').textContent = profile.desc;
+            
+            const nichesList = document.getElementById('niches-list');
+            nichesList.innerHTML = profile.niches.map(n => `<li>🎯 ${n}</li>`).join('');
+            
+            const actionsList = document.getElementById('actions-list');
+            actionsList.innerHTML = profile.actions.map(a => `<li>${a}</li>`).join('');
+            
+            document.getElementById('results').classList.remove('hidden');
+        }
+        
+        function showPricingModal() {
+            document.getElementById('pricing-modal').classList.remove('hidden');
+        }
+        
+        function closePricingModal() {
+            document.getElementById('pricing-modal').classList.add('hidden');
+        }
+        
+        function scrollToQuiz() {
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Smooth scroll on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
